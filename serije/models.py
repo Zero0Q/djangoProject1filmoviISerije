@@ -18,3 +18,7 @@ class Serija(models.Model):
     # sam menja url da ne mora svaki posebno
     def get_absolute_url(self):
         return f"/serije/{self.id}/"
+
+
+    def __str__(self):
+        return self.ime
