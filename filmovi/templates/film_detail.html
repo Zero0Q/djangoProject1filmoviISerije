@@ -1,12 +1,57 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block static %} <link href="{% static 'css/film-detalji.css' %}" rel="stylesheet" type="text/css"> {% endblock %}
+
 {% block title %}
-    Pocetna
+    {{ object.ime }} | Film
 {% endblock %}
+
 
 
 {% block content %}
 
-    <h2>{{ object.ime }}</h2>
+    <div class="main-box">
+        <div class="info">
+            <div class="slika-box">
+                <div class="slika">
+                    <img src="{{ object.image.url }}" alt="slika">
+                </div>
+            </div>
+
+            <div class="naslov-box">
+                <div class="naslov">
+                    <h4>{{ object.ime }}</h4>
+                </div>
+                <div class="info-film">
+                    <p>{{ object.zanr }} - {{ object.godina }}. - IMDB {{ object.imdbOcena }}</p>
+                </div>
+
+                <div class="linkovi">
+                    <a href="{{ object.linkGledaj }}" target="_blank" class="btn btn-primary" role="button">Gledaj online</a>
+
+                    <a href="{{ object.linkPreuzmi }}" class="btn btn-info" role="button">Preuzmi film</a>
+
+                    {% if object.prevod %}
+                        <a href="{{ object.prevod }}" class="btn btn-info" role="button">Preuzmi prevod</a>
+                    {% endif %}
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="radnja">
+            <p>{{ object.radnja }}</p>
+        </div>
+
+
+
+        <div class="nazad">
+            <a href="../" class="btn btn-success" role="button">Nazad</a>
+        </div>
+    </div>
 
 {% endblock %}

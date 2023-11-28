@@ -8,6 +8,6 @@ urlpatterns = [
 
     path('filmovi/', filmovi, name='filmovi'),
 
-    path('<int:id>/', detail_look, name='film-detail'),
+    path('filmovi/<int:id>/', detail_look, name='film-detail'),
 
 ]
