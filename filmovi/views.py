@@ -5,7 +5,6 @@ from .models import Film
 # Create your views here.
 def home(request):
 
-
     context = {
 
     }
