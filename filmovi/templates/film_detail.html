@@ -16,7 +16,11 @@
         <div class="info">
             <div class="slika-box">
                 <div class="slika">
-                    <img src="{{ object.image.url }}" alt="slika">
+
+                    {% if object.img.url %}
+                        <img src="{{ object.image.url }}" alt="slika">
+                    {% endif %}
+
                 </div>
             </div>
 
@@ -55,3 +59,5 @@
     </div>
 
 {% endblock %}
+
+
