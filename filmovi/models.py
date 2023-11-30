@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 from django.urls import reverse
 
@@ -13,8 +14,9 @@ class Film(models.Model):
     linkPreuzmi = models.CharField(max_length=1000)
     linkGledaj = models.CharField(max_length=1000)
     linkPrevod = models.CharField(max_length=200, blank=True, null=True)
-    image = models.ImageField(upload_to='media/', blank=True, null=True)
-
+    # image = models.ImageField(upload_to='media/', blank=True, null=True)
+    image = CloudinaryField('image')
+    # image = CloudinaryField('media/')
 
 
     # sam menja url da ne mora svaki posebno
