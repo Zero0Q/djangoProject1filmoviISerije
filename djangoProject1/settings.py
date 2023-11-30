@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'filmovi',
     'serije',
+    'dokumentarni',
 ]
 
 MIDDLEWARE = [

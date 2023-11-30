@@ -14,13 +14,11 @@
 
     <div class="list-group list-group-flush">
 
-    {% for film in filmovi %}
-        <a href="{{ film.get_absolute_url }}" class="list-group-item list-group-item-action ">
-            <h4>{{ film.ime }}</h4>
-        </a>
-    {% endfor %}
-
-
+        {% for film in filmovi %}
+            <a href="{{ film.get_absolute_url }}" class="list-group-item list-group-item-action ">
+                <h4>{{ film.ime }}</h4>
+            </a>
+        {% endfor %}
 
     </div>
 {% endblock %}

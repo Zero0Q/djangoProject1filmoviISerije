@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block static %} <link href="{% static 'css/film-detalji.css' %}" rel="stylesheet" type="text/css"> {% endblock %}
+
+{% block title %}
+    {{ emisija.naziv }} | Film
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="main-box">
+        <div class="info">
+            <div class="slika-box">
+                <div class="slika">
+
+{#                    <img src="{{ emisija.image.url }}" alt="slika">#}
+
+                </div>
+            </div>
+
+            <div class="naslov-box">
+                <div class="naslov">
+                    <h4>{{ emisija.naziv }}</h4>
+                </div>
+                <div class="info-film">
+                    <p>{{ emisija.zanr }} - {{ emisija.godina }}. - IMDB {{ emisija.imdbOcena }}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="radnja">
+            <p>{{ object.radnja }}</p>
+        </div>
+
+
+        <div class="linkovi">
+
+            <ul>
+                {% for s in emisija.sezone.all %}
+                    <li>
+                        <h4>{{ s.broj }}. sezona</h4>
+
+                        <ol>
+                            {% for e in s.epizode.all %}
+                                <li>{{ e.broj }}. epizoda --- <a href="{{ object.linkGledaj }}" target="_blank" class="btn btn-primary" role="button">Gledaj online</a> </li>
+                            {% endfor %}
+                        </ol>
+
+                    </li>
+                {% endfor %}
+            </ul>
+
+
+
+
+{#                <a href="{{ object.linkGledaj }}" target="_blank" class="btn btn-primary" role="button">Gledaj online</a>#}
+{##}
+{#                <a href="{{ object.linkPreuzmi }}" class="btn btn-info" role="button">Preuzmi film</a>#}
+{##}
+{#                {% if object.linkPrevod %}#}
+{#                    <a href="{{ object.linkPrevod }}" class="btn btn-info" role="button">Preuzmi prevod</a>#}
+{#                {% endif %}#}
+        </div>
+
+
+
+
+        <div class="nazad">
+            <a href="../" class="btn btn-success" role="button">Nazad</a>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% load static %}#}
+{##}
+{#{% block static %} <link href="{% static 'css/serije.css' %}" rel="stylesheet" type="text/css"> {% endblock %}#}
+{##}
+{#{% block title %}#}
+{#    {{ emisija.naziv }}#}
+{#{% endblock %}#}
+{##}
+{##}
+{#{% block content %}#}
+{#    <h1>{{ emisija.naziv }}</h1>#}
+{#    <h5>{{ emisija.zanr }}</h5>#}
+{##}
+{#    <h3>Sezone</h3>#}
+{##}
+{#    <ul>#}
+{#        {% for s in emisija.sezone.all %}#}
+{#            <li>#}
+{#                <h4>Sezona {{ s.broj }}</h4>#}
+{##}
+{#                <ol>#}
+{#                    {% for e in s.epizode.all %}#}
+{#                        <p>Epizoda {{ e.broj }}</p>#}
+{#                    {% endfor %}#}
+{#                </ol>#}
+{##}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{##}
+{##}
+{##}
+{##}
+{#{% endblock %}#}
+{##}
+{##}
+{#{% block content %}#}
+{#    <h2 class="naslov">{ { serija.naziv }}</h2>#}
+{#    <h3>{{ serija.naziv }}</h3>#}
+{#    <div class="list-group list-group-flush">#}
+{##}
+{#        <h1>{ { emisija.naziv }}</h1>#}
+{##}
+{#        <p>Genre: { { emisija.genre }}</p>#}
+{#        <p>Description: { { tvshow.description }}</p>#}
+{#        <img src="{ { tvshow.image.url }}" alt="{ { tvshow.name }} image">#}
+{#        <h2>Seasons</h2>#}
+{#        <ul>#}
+{##}
+{#        {% for season in tvshow.seasons.all %}#}
+{#        <li>#}
+{#        <h3>Season { { season.number }} ( { { season.year }} )</h3>#}
+{#        <ol>#}
+{##}
+{#        {% for episode in season.episodes.all %}#}
+{#        <li>{ { episode.title }} ( { { episode.duration }} minutes)</li>#}
+{#        {% endfor %}#}
+{##}
+{#        </ol>#}
+{#        </li>#}
+{#        {% endfor %}#}
+{##}
+{#        </ul>#}
+{##}
+{#    </div>#}
+{##}
+{##}
+{#    {{ serija.naziv }}#}
+{#{% endblock %}#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}

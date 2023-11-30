@@ -2,10 +2,10 @@
 
 {% load static %}
 
-{#{% block static %} <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css"> {% endblock %}#}
+{% block static %} <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css"> {% endblock %}
 
 {% block title %}
-    Serije
+    {{ serija.naziv }}
 {% endblock %}
 
 
@@ -14,17 +14,12 @@
 
     <div class="list-group list-group-flush">
 
-{#    {% for film in filmovi %}#}
-{#        <a href="{{ film.get_absolute_url }}" class="list-group-item list-group-item-action ">#}
-{#            <h4>{{ film.ime }}</h4>#}
-{#        </a>#}
-{#    {% endfor %}#}
+        {% for serija in serije %}
 
-    {% for serija in serije %}
-        <h3>{{ serija.ime }}</h3>
-    {% endfor %}
-
-
+            <a href="{% url 'serije:serija_detail' serija.id %}" class="list-group-item list-group-item-action ">
+                <h4>{{ serija.naziv }}</h4>
+            </a>
+        {% endfor %}
 
     </div>
 {% endblock %}
