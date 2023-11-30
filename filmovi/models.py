@@ -16,7 +16,6 @@ class Film(models.Model):
     linkPrevod = models.CharField(max_length=200, blank=True, null=True)
     # image = models.ImageField(upload_to='media/', blank=True, null=True)
     image = CloudinaryField('image')
-    # image = CloudinaryField('media/')
 
 
     # sam menja url da ne mora svaki posebno
