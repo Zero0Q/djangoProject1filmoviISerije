@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block static %}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/slike.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %}
+    slike
+{% endblock %}
+
+
+{% block content %}
+    <h2 class="naslov">Slike</h2>
+
+    <div class="list-group list-group-flush">
+
+    {% for f in foto %}
+        <img src="{{ f.image.url }}" alt="slika" class="slika">
+    {% endfor %}
+
+    </div>
+{% endblock %}
